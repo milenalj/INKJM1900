@@ -3,7 +3,7 @@
 Lorem ipsum
 
 ## Python + Spyder editor
-https://www.anaconda.com/products/invidual-d
+https://www.anaconda.com/products/individual-d
 
 ## Tool 2
 Lorem ipsum dolor sit emet
