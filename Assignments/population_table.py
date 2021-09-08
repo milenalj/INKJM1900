@@ -1,5 +1,7 @@
 from math import e
 
+import numpy as np
+
 B=50000 #carrying capacity
 
 k=0.2 #growth rate per hour
@@ -16,7 +18,9 @@ N_values=[] #empty list of number of bacteria at given given time, t
 
 n=12
 
-for t in range(0, (n+1), 2): #uniformely spaced range for t values
+step = 48/n
+
+for t in np.arange(0, 49, step): #uniformely spaced range for t values
 
 	N=B/(1+C*e**(-k*t))#population growth formula
 
@@ -52,11 +56,17 @@ print ('--------------------------')
 t-values:      N_values:
 --------------------------
 0.00,          5000.00
-2.00,          7109.46
 4.00,          9912.84
-6.00,          13474.37
 8.00,          17748.95
-10.00,          22542.65
 12.00,          27526.04
+16.00,          36580.20
+20.00,          42924.32
+24.00,          46552.00
+28.00,          48389.56
+32.00,          49263.32
+36.00,          49666.28
+40.00,          49849.50
+44.00,          49932.26
+48.00,          49969.54
 --------------------------
 """
