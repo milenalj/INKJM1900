@@ -27,4 +27,9 @@ else:
     print ('The sums are not equal.')
 
 
+#OUTPUT:
 
+"""
+The sums are equal.
+
+"""
