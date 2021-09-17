@@ -1,4 +1,3 @@
-from math import e
 import numpy as np
 
 
@@ -15,7 +14,7 @@ N_values=[] #empty list of number of bacteria at given given time, t
 
 
 for t in np.arange(0, 49, step): #uniformely spaced range for t values
-	N=B/(1+C*e**(-k*t))#population growth formula
+	N=B/(1+C*np.exp(-k*t))#population growth formula
 	T.append(t) #adds values for time,t to the empty list
 	N_values.append(N) # adds corresponding N values
 

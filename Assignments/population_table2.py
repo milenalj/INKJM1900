@@ -4,7 +4,7 @@ Created on Fri Sep 10 00:13:02 2021
 
 @author: milenaljubisic
 """
-
+pip install braketlab
 from math import e
 import numpy as np
 
