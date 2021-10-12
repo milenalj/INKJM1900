@@ -6,18 +6,17 @@ Created on Tue Oct 12 18:02:51 2021
 """
 sequence = []
 nr_terms = 13
-x0 = x1 = 1
+xn1 = xn2 = 1
 i = 0
 
-sequence.append(x0)
-sequence.append(x1)
-
+sequence.append(xn1)
+sequence.append(xn2)
 
 while i < nr_terms:
-    x = x0 + x1
-    x0 = x1
-    x1 = x
+    x = xn1 + xn2
+    xn1 = xn2
     sequence.append(x)
+    xn2 = x
     i += 1
     
 print(sequence)
