@@ -15,14 +15,34 @@ def newton_pi(x):
 x1 = newton_pi(x0)
 x2 = newton_pi(x1)
 
-print(x0, x1, x2)
 
-#numpy_pi = np.pi
+numpy_pi = np.pi
 
-"""
+
 print("-------------------------------------------------")
 print("The value of pi from numpy is: %.13f" %numpy_pi)
 print("-------------------------------------------------")
-#print("The value of x0 is: %.13f"%x0)
+print("The value of x0 is: %.13f" %x0)
 print("-------------------------------------------------")
+print("The value of x1 is: %.13f" %x1)
+print("-------------------------------------------------")
+print("The value of x2 is: %.13f" %x2)
+print("-------------------------------------------------")
+
+
+"""
+OUTPUT:
+    
+runfile('C:/Users/milenaljubisic/Documents/INKJM1900/Assignments/finding_pi.py', wdir='C:/Users/milenaljubisic/Documents/INKJM1900/Assignments')
+-------------------------------------------------
+The value of pi from numpy is: 3.1415926535898
+-------------------------------------------------
+The value of x0 is: 3.1400000000000
+-------------------------------------------------
+The value of x1 is: 3.1415926549364
+-------------------------------------------------
+The value of x2 is: 3.1415926535898
+-------------------------------------------------
+
+
 """
