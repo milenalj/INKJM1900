@@ -29,22 +29,42 @@ def linear_regression(x, y):
     
     slope = sum_y/sum_x
     intercept = avg_y - (slope * avg_x)
-    equation = (slope, intercept)
-    return equation
+    return slope, intercept
 
-test_x = np.arange(0.2, 1.0, 0.1)
-test_y = np.arange(200.0, 360.0, 20)
-print(test_y)
+slope, intercept = linear_regression(cal_conc, cal_abs)
+linear_regression(cal_conc, cal_abs)
 
-print(linear_regression(cal_conc, cal_abs))
+def regression_abs(concentration):
+    absorbance = slope*concentration + intercept
+    return absorbance
+
+concentration = np.linspace(0, 0.6, 100)
+
+plt.xlabel('Konsentrasjon av bly i vann (ppm)', color='black')
+plt.ylabel('Absorbans', color='black')
+plt.plot(cal_conc, cal_abs, 'ro')
+plt.plot(concentration, regression_abs(concentration))
+plt.show()
+
+abs = 0.340
+def regression_conc(abs):
+    value = (abs + intercept)/slope
+    return value
+
+
+concentration_of_ions = regression_conc(abs)
+print("Konsentrasjon av blyioner i vannet er %.2f ppm" %concentration_of_ions)
+
+
+"""
 
 class TestFunc(unittest.TestCase):
     def test_linear_regression(x, y):
-        """
-        Verify the values returned by function linear_regression():
+        
+        #Verify the values returned by function linear_regression():
             
             
-        """
+        
         x = test_x
         y = test_y
         
@@ -63,7 +83,7 @@ if __name__ == '__main__':
     unittest.main()
     
 
-"""
+
 
 def regression_bly(x):
     y = slope*x + intercept
