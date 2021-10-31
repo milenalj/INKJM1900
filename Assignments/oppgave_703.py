@@ -9,13 +9,16 @@ import pandas as pd
 
 
 file = pd.read_csv ('vin.csv')
-print (file)
+print (file.iloc[:,10])
+print ('----------------------------')
 
 
 correlation_coefficients = []
 
 def get_correlation(file, i, j):
-    lo
+    #suma kolone 0
+    #suma kolene 1
+    
     return file.iat[j, i]
     
 
@@ -28,5 +31,5 @@ for i in range(0, 12):
         column.append(x)
     correlation_coefficients.append(column)  
 
-print(correlation_coefficients)
+#print(correlation_coefficients)
         
