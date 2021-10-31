@@ -6,30 +6,31 @@ Created on Sun Oct 31 18:20:11 2021
 """
 
 import pandas as pd
-
+import numpy as np
 
 file = pd.read_csv ('vin.csv')
-print (file.iloc[:,10])
-print ('----------------------------')
 
 
-correlation_coefficients = []
 
-def get_correlation(file, i, j):
+correlation_coefficients = [] 
+
+def get_correlation(file, i):
     #suma kolone 0
     #suma kolene 1
+    avg_i = np.mean(file.iloc[:,i])
+    avg_j = np.mean(file.iloc[:,i+1])
+    print(avg_i, avg_j)
     
-    return file.iat[j, i]
+    return avg_i
     
 
-for i in range(0, 12):
-    column = []
-    for j in range(0, 1598):
-        #print(i, j)
-        
-        x = get_correlation(file, i, j)
-        column.append(x)
-    correlation_coefficients.append(column)  
+for i in range(0, 11):
+   column = []
+   x = get_correlation(file, i)
+   column.append(x)
+   correlation_coefficients.append(column) 
+   
+
 
 #print(correlation_coefficients)
         
