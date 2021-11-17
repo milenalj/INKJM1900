@@ -38,41 +38,33 @@ plt.show()
 
 data.close()
 
+"""
+Input is matrix in format
+[derivative1, pH1, volume1]
+[derivative2, pH2, volume2]
+[derivative_n, pH_n, volume_n]
+"""
+def getdata_with_max_derivative_func(data_matrix):
+    maximum = 0
+    row_with_max = []
+    for row in data_matrix:
+        if (row[0] > maximum):
+            maximum = row[0]
+            row_with_max = row
+    return row_with_max
 
         
 derivative = []
+data_matrix = []
 for j in range(len(volum)):
         deriverte_pH = (pH[j] - pH[j-1]) / (volum[j] - volum[j-1])
-        j += 1
+        data_matrix.append([deriverte_pH, pH[j], volum[j]])
         derivative.append(deriverte_pH)
+        j += 1
         
-print(derivative)
+max_data = getdata_with_max_derivative_func(data_matrix)
 
-def maximum_func(of_list):
-    maximum = 0
-    for k in of_list:
-        if (k > maximum):
-            maximum = k
-    return maximum
 
 print()
-print("Discovered max: ", maximum_func(derivative))
-print("Numpi max: ", np.max(derivative))
-
-"""
-class TestFunc(unittest.TestCase):
-    def test_maximum(x):
-        #Verify the values returned by function gjennomsnitt(liste):
-       
-        x = derivative
-        expected = np.max(derivative)
-        computed = maximum_func(derivative)
-        tol = 1E-14
-        success = abs(expected - computed) < tol
-        msg = f"computed value={computed} != {expected}(expected)"
-        assert success, msg
-
-        
-if __name__ == '__main__':
-    unittest.main()
-"""
+print("Discovered max: ", max_data[0], "- compared to numpy.max: ", np.max(derivative))
+print("For pH =",max_data[1], "and volume =",max_data[2])
