@@ -17,7 +17,7 @@ with open('titreringsdata.txt', 'r') as data:
 
 volum = []
 pH = []
-count = 1
+
 for i in range(1, len(lines)):
     x, y = map(float, lines[i].split(","))
     volum.append(x)
@@ -39,18 +39,42 @@ plt.show()
 data.close()
 
 
-#def derivative_pH(volume, pH_value):
-    #for j in range(0, len(volume)):
         
 derivative = []
-for j in range(1, len(volum)+2):
+for j in range(len(volum)):
         deriverte_pH = (pH[j] - pH[j-1]) / (volum[j] - volum[j-1])
         j += 1
         derivative.append(deriverte_pH)
-        #print(pH)
-
+        
 print(derivative)
 
-#with open('titreringsdata.txt', 'a') as 
+def maximum_func(of_list):
+    maximum = None
+    for k in of_list:
+        if (maximum is None or k > maximum):
+            maximum = k
+    return maximum
 
+print(maximum_func(derivative))
+
+class TestFunc(unittest.TestCase):
+    def test_maximum(x):
+        """
+        Verify the values returned by function gjennomsnitt(liste):
+            
+            
+        """
+       
+        x = derivative
+        expected = np.max(derivative)
+        computed = maximum_func(derivative)
+        tol = 1E-14
+        success = abs(expected - computed) < tol
+        msg = f"computed value={computed} != {expected}(expected)"
+        assert success, msg
+
+        
+if __name__ == '__main__':
+    unittest.main()
+    
 
