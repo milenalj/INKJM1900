@@ -49,21 +49,20 @@ for j in range(len(volum)):
 print(derivative)
 
 def maximum_func(of_list):
-    maximum = None
+    maximum = 0
     for k in of_list:
-        if (maximum is None or k > maximum):
+        if (k > maximum):
             maximum = k
     return maximum
 
-print(maximum_func(derivative))
+print()
+print("Discovered max: ", maximum_func(derivative))
+print("Numpi max: ", np.max(derivative))
 
+"""
 class TestFunc(unittest.TestCase):
     def test_maximum(x):
-        """
-        Verify the values returned by function gjennomsnitt(liste):
-            
-            
-        """
+        #Verify the values returned by function gjennomsnitt(liste):
        
         x = derivative
         expected = np.max(derivative)
@@ -76,5 +75,4 @@ class TestFunc(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
-    
-
+"""
