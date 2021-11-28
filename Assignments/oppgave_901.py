@@ -62,28 +62,28 @@ plt.legend()
 
 #odavde ne radi
 
-from scipy.integrate import solve_ivp
+# from scipy.integrate import solve_ivp
 
-t0 = 0
-tid_slutt = 108
-t = np.linspace(t0, tid_slutt, int(1E6))
+# t0 = 0
+# tid_slutt = 108
+# t = np.linspace(t0, tid_slutt, int(1E6))
 
-def dO_dt(O, t):
-    return 2*k1*O2 - k2*O2*O*M + k3*O3 - k4*O3*O
+# def dO_dt(O, t):
+#     return 2*k1*O2 - k2*O2*O*M + k3*O3 - k4*O3*O
 
-def dO2_dt(O2, t):
-    return -k1*O2 - k2*O2*O*M + k3*O3 + 2*k4*O3*O
+# def dO2_dt(O2, t):
+#     return -k1*O2 - k2*O2*O*M + k3*O3 + 2*k4*O3*O
 
-def dO3_dt(O3, t):
-    return k2*O2*M - k3*O3 - k4*O*O3
+# def dO3_dt(O3, t):
+#     return k2*O2*M - k3*O3 - k4*O*O3
 
-print(dO3_dt(O3,t))
+# print(dO3_dt(O3,t))
 
-y0 = 0.21 * M
-O2_int = solve_ivp(dO2_dt, [t0, tid_slutt], [0.21 * M], t_eval = t, method = 'BDF')
+# y0 = 0.21 * M
+# O2_int = solve_ivp(dO2_dt, [t0, tid_slutt], [0.21 * M], t_eval = t, method = 'BDF')
 
-plt.xlabel("t")
-plt.ylabel("y")
-plt.plot(O2_int.O, O2_int.t[0])
+# plt.xlabel("t")
+# plt.ylabel("y")
+# plt.plot(O2_int.O, O2_int.t[0])
 
-plt.show()
+# plt.show()

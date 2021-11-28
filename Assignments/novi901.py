@@ -20,9 +20,6 @@ k2 = 1.2e-33
 k3 = 5.5e-4
 k4 = 6.9e-16
 
-t0 = 0
-tid_slutt = 108
-t = np.linspace(t0, tid_slutt, int(1E6))
 
 def ratelover(t,y):
     O = y[0]
@@ -50,13 +47,15 @@ y0 = [0.21 * M, 0, 0] # Array med startverdier
 y_int = solve_ivp(ratelover, [a,b], y0, t_eval=t)
 
 plt.xlabel("t (s)")
+#plt.yscale('log')
 plt.ylabel("c (mol/L)")
 plt.plot(y_int.t, y_int.y[0]) # Plotter [HI]
-plt.plot(y_int.t, y_int.y[1]) # Plotter [H2]
+plt.plot(y_int.t, y_int.y[2]) # Plotter [H2]
 plt.show()
 
 
-print(dO3_dt(O3,t))
+print(ratelover(t, y0))
+
 
 # y0 = 0.21 * M
 # O2_int = solve_ivp(dO2_dt, [t0, tid_slutt], [1], t_eval = t, method = 'BDF')
