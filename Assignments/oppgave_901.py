@@ -80,7 +80,7 @@ def dO3_dt(O3, t):
 print(dO3_dt(O3,t))
 
 y0 = 0.21 * M
-O2_int = solve_ivp(dO2_dt, [t0, tid_slutt], [0.21 * M], t_eval = t)
+O2_int = solve_ivp(dO2_dt, [t0, tid_slutt], [0.21 * M], t_eval = t, method = 'BDF')
 
 plt.xlabel("t")
 plt.ylabel("y")

@@ -87,3 +87,38 @@ print()
 print("The standard deviation for the chtomatographic measurements is %.5f" %standardavvik(liste1))
 print("-------------------------------------------------")
 
+class TestFunc(unittest.TestCase):
+    liste = [1,2,2,1,3,3] 
+    def test_gjennomsnitt(x):
+        """
+        Verify the values returned by function gjennomsnitt(liste):
+            
+            
+        """
+       
+        x = liste
+        expected = np.mean(liste)
+        computed = gjennomsnitt(liste)
+        tol = 1E-10
+        success = abs(expected - computed) < tol
+        msg = f"computed value={computed} != {expected}(expected)"
+        assert success, msg
+    def test_stdavvik(y):
+        """
+        Verify the values returned by the function standardavvik(liste):
+        
+        
+        """
+        
+        y = liste
+        expected = np.std(liste)
+        computed = standardavvik(liste)
+        tol = 1E-14
+        success = abs(expected - computed) < tol
+        msg = f"computed value={computed} != {expected}(expected)"
+        assert success, msg
+        
+        
+if __name__ == '__main__':
+    unittest.main()
+    
