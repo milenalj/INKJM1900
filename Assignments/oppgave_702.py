@@ -10,6 +10,7 @@ import unittest
 
 liste = [1,2,2,1,3,3]
 
+
 def gjennomsnitt(liste):
     sum_gjennomsnitt = 0
     for i in liste:
@@ -17,7 +18,10 @@ def gjennomsnitt(liste):
     verdi = sum_gjennomsnitt/len(liste)
     return verdi
 
-print(gjennomsnitt(liste))
+print("-------------------------------------------------")
+print()
+print("The mean value for the list = [1,2,2,1,3,3] is %.5f" %gjennomsnitt(liste))
+print("-------------------------------------------------")
 
 def standardavvik(liste):
     sum_stdavvik = 0
@@ -26,7 +30,11 @@ def standardavvik(liste):
     verdi_stdavvik = np.sqrt(sum_stdavvik/len(liste))
     return verdi_stdavvik
 
-print(standardavvik(liste))
+print("-------------------------------------------------")
+print()
+print("The standard deviation for the list = [1,2,2,1,3,3] is %.5f" %standardavvik(liste))
+print("-------------------------------------------------")
+
 
 
 class TestFunc(unittest.TestCase):
@@ -64,3 +72,18 @@ class TestFunc(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     
+
+
+liste1 = [245, 272, 252, 264, 261, 272, 255, 260, 268, 259]
+
+print("-------------------------------------------------")
+print()
+print("The mean value for the chtomatographic measurements is %.5f" %gjennomsnitt(liste1))
+print("-------------------------------------------------")
+
+
+print("-------------------------------------------------")
+print()
+print("The standard deviation for the chtomatographic measurements is %.5f" %standardavvik(liste1))
+print("-------------------------------------------------")
+
