@@ -56,49 +56,7 @@ concentration_of_ions = regression_conc(abs)
 print("Konsentrasjon av blyioner i vannet er %.2f ppm" %concentration_of_ions)
 
 
-"""
-
-class TestFunc(unittest.TestCase):
-    def test_linear_regression(x, y):
-        
-        #Verify the values returned by function linear_regression():
-            
-            
-        
-        x = test_x
-        y = test_y
-        
-        expected = (200, 160)
-        computed = linear_regression(cal_conc, cal_abs)
-        tol = 1E-14
-        success = abs(expected - computed) < tol
-        msg = f"computed value={computed} != {expected}(expected)"
-        assert success, msg
 
 
 
-#print(test_linear_regression(avg_conc, avg_abs))
 
-if __name__ == '__main__':
-    unittest.main()
-    
-
-
-
-def regression_bly(x):
-    y = slope*x + intercept
-    return y
-
-print(regression_bly(0))
-
-
-x = np.linspace(0, 0.6, 100)
-#y = slope*x + intercept
-
-plt.xlabel('Konsentrasjon av bly i vann (ppm)', color='black')
-plt.ylabel('Absorbans', color='black')
-plt.plot(cal_conc, cal_abs, 'ro')
-plt.plot(x, regression_bly(x))
-plt.show()
-
-"""

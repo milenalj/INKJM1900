@@ -7,6 +7,7 @@ Created on Sun Oct 31 18:20:11 2021
 
 import pandas as pd
 import numpy as np
+import seaborn as sns
 
 file = pd.read_csv ('vin.csv')
 
@@ -46,4 +47,8 @@ for i in range(0, 11):
    
 
 print(correlation_coefficients)
+
+sns.heatmap(correlation_coefficients, annot=True) # Lager visualisering. Parameteren annot = True gir tallene i boksene.
+plt.xticks(rotation=45)       # Roterer x-akseteksten 45 grader
+plt.show()
         
