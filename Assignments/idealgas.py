@@ -9,45 +9,41 @@ import unittest
 # PV = nRT, ideal gas equation
 
 
-def get_pressure(V, n, T, R = 8.314):
-    """
-    Function that returns the pressure of an ideal gas, given temperature, volume,
-    amount of gas in moles and the ideal gas constant with the standard value of R = 8,314 J/(K x mol).
-    
-    Parameters
-    ----------
-    V : volume
-        Volume of the gas in m^3.
-        
-    n : amount
-        Amount of gas in moles.
-        
-    T : temperature
-        The temperature of gas in Kelvin (K).
-        
-    R : ideal gas constant
-        Stopping condition, when stop > abs_value(f(x)).
-        
-    maxteration : integer
-        ideal gas constant with the standard value of R = 8,314 J/(K x mol).
+"""
+Function that returns the pressure of an ideal gas, given temperature, volume,
+amount of gas in moles and the ideal gas constant with the standard value of R = 8,314 J/(K x mol).
 
-    Returns
-    -------
-    P: pressure
+Parameters
+----------
+V : volume
+    Volume of the gas in m^3.
     
-    Pressure in Pascal (Pa).
-    """
+n : amount
+    Amount of gas in moles.
     
+T : temperature
+    The temperature of gas in Kelvin (K).
+    
+R : ideal gas constant
+    Stopping condition, when stop > abs_value(f(x)).
+    
+maxteration : integer
+    ideal gas constant with the standard value of R = 8,314 J/(K x mol).
+
+Returns
+-------
+P: pressure
+
+Pressure in Pascal (Pa).
+"""
+def get_pressure(V, n, T, R = 8.314472):
     P = (n * R * T)/V
-    
     return P
-
-get_pressure(0.03, 1, 273)
 
 
 class TestFunc(unittest.TestCase):
     
-    def test_pressure (V_test, n_test, T_test):
+    def test_pressure (self):
         """
         Testing for standard conditions of:
         
@@ -56,14 +52,14 @@ class TestFunc(unittest.TestCase):
         n_test = 1
         
         """
+        
         V_test = 0.022414 
         n_test = 1
         T_test = 273.15
-        expected = 101.325 * 1000
-        computed = get_pressure(V_test, n_test, T_test)
-        tol = 1E-10
-        success = abs(expected - computed) < tol
-        msg = f"computed value={computed} != {expected}(expected)"
+        calculated_result = get_pressure(V_test, n_test, T_test)
+        expected_result = 101324.9
+        tol = 0.08
+        self.assertTrue(abs(expected_result - calculated_result ) < tol)
 
 if __name__ == '__main__':
     unittest.main()
